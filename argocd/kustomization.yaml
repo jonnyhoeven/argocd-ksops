@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+commonLabels:
+  app: argocd
+  env: local
+
+resources:
+  - base/argocd.install.yaml
+  - base/argocd.Namespace.yaml
+patches:
+  - target:
+      kind: Deployment
+      name: argocd-repo-server
+    path: overlays/local/argocd-repo-server.Deployment.yaml
+  - target:
+      kind: ConfigMap
+      name: argocd-cm
+    path: overlays/local/argocd-cm.Configmap.yaml
