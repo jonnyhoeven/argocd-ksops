@@ -4,7 +4,6 @@ namespace: argocd
 commonLabels:
   app: argocd
   env: local
-
 resources:
   - base/argocd.install.yaml
   - base/argocd.Namespace.yaml
@@ -17,3 +16,5 @@ patches:
       kind: ConfigMap
       name: argocd-cm
     path: overlays/local/argocd-cm.Configmap.yaml
+generators:
+  - overlays/local/secret-generator.KSOPS.yaml
