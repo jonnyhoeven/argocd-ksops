@@ -1,4 +1,4 @@
-# K3D Argocd
+# Argocd KSOPS
 
 This repository contains the K3D setup for the ArgoCD and includes kustomize with sops encryption setup.
 
@@ -73,6 +73,7 @@ kubectl create secret generic sops-gpg \
 --namespace=argocd \
 --from-file=gpg.key
 ```
+
 Apply the local with Kustomize:
 
 ```bash
