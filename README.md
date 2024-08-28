@@ -106,3 +106,10 @@ argocd login 127.0.0.1:8080
 # Password: <from kubectl get secret response, without %>
 argocd account update-password
 ```
+
+
+## Cleanup
+
+```bash
+sudo k3d cluster delete argocd-ksops
+```
